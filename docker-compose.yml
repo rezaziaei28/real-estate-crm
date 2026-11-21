@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: appointly_backend
+    volumes:
+      - ./core:/app
+    ports:
+      - "8000:8000"
+    command: python3 manage.py runserver 0.0.0.0:8000
+    environment:
+      - SECRET_KEY=test
+      - DEBUG=True
+
+  db:
+    image: docker.arvancloud.ir/postgres:15
+    container_name: appointly_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=appointly_db
+      - POSTGRES_USER=appointly_user
+      - POSTGRES_PASSWORD=appointly_password
+
+volumes:
+  postgres_data:
