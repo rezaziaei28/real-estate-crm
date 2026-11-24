@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: appointly_backend
+    container_name: malekflow_backend
     volumes:
       - ./core:/app
     ports:
@@ -15,13 +15,15 @@ services:
 
   db:
     image: docker.arvancloud.ir/postgres:15
-    container_name: appointly_db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
+    container_name: malekflow_db
     environment:
-      - POSTGRES_DB=appointly_db
-      - POSTGRES_USER=appointly_user
-      - POSTGRES_PASSWORD=appointly_password
+      POSTGRES_DB: malekflow_db
+      POSTGRES_USER: malekflow_user
+      POSTGRES_PASSWORD: malekflow_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
 volumes:
   postgres_data:

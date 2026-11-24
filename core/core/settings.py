@@ -133,9 +133,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB', default='appointly_db'),
-        'USER': config('POSTGRES_USER', default='appointly_user'),
-        'PASSWORD': config('POSTGRES_PASSWORD', default='appointly_password'),
+        'NAME': config('POSTGRES_DB', default='malekflow_db'),
+        'USER': config('POSTGRES_USER', default='malekflow_user'),
+        'PASSWORD': config('POSTGRES_PASSWORD', default='malekflow_password'),
         'HOST': 'db', 
         'PORT': '5432',
     }
